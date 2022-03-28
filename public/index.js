@@ -25,7 +25,7 @@ countriesWrapper.autocomplete = new Autocomplete(countriesWrapper, {
 const userWrapper = document.getElementById('users');
 const userResults = document.getElementById('users-results');
 const selectedUser = document.getElementById('selected-users');
-userWrapper.autocomplete = new Autocomplete(countriesWrapper, {
+userWrapper.autocomplete = new Autocomplete(userWrapper, {
   data: [],
   resultsEl: userResults,
   fetchAsyncData: () =>
@@ -33,14 +33,14 @@ userWrapper.autocomplete = new Autocomplete(countriesWrapper, {
       .then(res => res.json())
       .then(({ data }) => {
         const users = [...data];
-        users.map(user =>
-            (user.label = `${user.first_name} ${user.last_name}`),
-        );
+        users.map(user => user.label = `${user.first_name} ${user.last_name}`)
         return users;
       }),
   renderResult: user => {
     const item = document.createElement('div');
-    item.innerText = user ? user.label : 'Start typing for options';
+    user 
+      ? item.innerText = `${user.first_name} ${user.last_name}` 
+      : item.innerText ='Start typing for options'
     return item;
   },
   onSelect: user => {
