@@ -9,14 +9,14 @@ const selectedCountry = document.getElementById('selected-country');
 countriesWrapper.autocomplete = new Autocomplete(countriesWrapper, {
   data: countries,
   resultsEl: countriesResults,
-  renderResult: (country) => {
+  renderResult: country => {
     const item = document.createElement('div');
     item.innerText = country
       ? country.label
       : 'Start typing for options';
     return item;
   },
-  onSelect: (country) => {
+  onSelect: country => {
     console.log('select', country);
     selectedCountry.innerText = `${country.label} (${country.code})`;
   },
@@ -28,12 +28,22 @@ const selectedUser = document.getElementById('selected-users');
 userWrapper.autocomplete = new Autocomplete(countriesWrapper, {
   data: [],
   resultsEl: userResults,
-  renderResult: (user) => {
+  fetchAsyncData: async () =>
+    fetch('https://reqres.in/api/users')
+      .then(res => res.json())
+      .then(({ data }) => {
+        const users = [...data];
+        users.map(user =>
+            (user.label = `${user.first_name} ${user.last_name}`),
+        );
+        return users;
+      }),
+  renderResult: user => {
     const item = document.createElement('div');
     item.innerText = user ? user.label : 'Start typing for options';
     return item;
   },
-  onSelect: (user) => {
+  onSelect: user => {
     console.log('select', `${user.first_name} ${user.last_name}`);
     selectedUser.innerText = `${user.first_name} ${user.last_name}`;
   },

@@ -15,13 +15,19 @@ export default class Autocomplete {
     this.resultsEl = config.resultsEl;
     this.renderResult = config.renderResult;
     this.onSelect = config.onSelect;
+    this.fetchAsyncData = config.fetchAsyncData;
 
     this.initResults();
     this.initInput();
     this.resetResults();
   }
 
-  initResults() {
+  async initResults() {
+    if(this.fetchAsyncData){
+      console.log('triggered');
+      this.data = await this.fetchAsyncData();
+      console.log(this.data);
+    }
     const list = document.createElement('ol');
     list.id = `autocomplete-${uid()}`;
     list.tabIndex = -1;
