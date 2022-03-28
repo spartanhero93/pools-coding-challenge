@@ -7,6 +7,7 @@ and "last_name". This can also be applied to any other api without a "label" pro
 4. Started working on keyboard navigation.
 
 Finishing thoughts/Future improvements:
+* Allow user to also search regardless if letter is capitalized, "u" should still bring up "United States, United Emirates"
 * Would have wanted to finish keyboard navigation, but i believe i Didn't have enough time.
 * Would have improved styling a bit more.
 * Would have added more information to the user when selecting an item in the dropdowns.
