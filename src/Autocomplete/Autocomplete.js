@@ -62,6 +62,22 @@ export default class Autocomplete {
 
   onInputKeydown = (evt) => {
     if (evt.key === 'Escape') this.close();
+
+    // switch (evt.keyCode) {
+    //   case 37:
+    //     console.log('ArrowLeft');
+    //     break;
+    //   case 38:
+    //     console.log('ArrowUp');
+    //     break;
+    //   case 39:
+    //     console.log('ArrowRight');
+    //     break;
+    //   case 40:
+    //     console.log('ArrowDown');
+    //     break;
+    //     default:
+    //       break;
   };
 
   onInputChange = (evt) => {
