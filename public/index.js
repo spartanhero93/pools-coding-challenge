@@ -28,7 +28,7 @@ const selectedUser = document.getElementById('selected-users');
 userWrapper.autocomplete = new Autocomplete(countriesWrapper, {
   data: [],
   resultsEl: userResults,
-  fetchAsyncData: async () =>
+  fetchAsyncData: () =>
     fetch('https://reqres.in/api/users')
       .then(res => res.json())
       .then(({ data }) => {

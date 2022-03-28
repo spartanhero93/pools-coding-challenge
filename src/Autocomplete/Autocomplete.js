@@ -22,11 +22,10 @@ export default class Autocomplete {
     this.resetResults();
   }
 
-  async initResults() {
+  initResults() {
     if(this.fetchAsyncData){
       console.log('triggered');
-      this.data = await this.fetchAsyncData();
-      console.log(this.data);
+      this.fetchAsyncData().then((data) => (this.data = data));
     }
     const list = document.createElement('ol');
     list.id = `autocomplete-${uid()}`;
