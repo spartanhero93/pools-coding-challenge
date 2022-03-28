@@ -3,4 +3,4 @@
 2. since the user data doesn't contain a "label" property for each user, I decided to add it by combining "first_name"
 and "last_name".
   * Any future developer can see this and most likely insinuate that a label property muse be added to the data beforehand.
-3. 
+3. Had an issue with using async due to babel 7 version, decided to use fetch in the autocomplete instead
