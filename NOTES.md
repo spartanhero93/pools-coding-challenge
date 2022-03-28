@@ -6,7 +6,7 @@ and "last_name".
 3. Had an issue with using async due to babel 7 version, decided to use fetch in the autocomplete instead.
 4. Started working on keyboard navigation.
 
-Finishing thoughts:
+Finishing thoughts/Future improvements:
 * Would have wanted to finish keyboard navigation, but i believe i Didn't have enough time.
 * Would have improved styling a bit more.
 * Would have added more information to the user when selecting an item in the dropdowns.
