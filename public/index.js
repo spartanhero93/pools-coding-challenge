@@ -25,19 +25,16 @@ countriesWrapper.autocomplete = new Autocomplete(countriesWrapper, {
 const userWrapper = document.getElementById('users');
 const userResults = document.getElementById('users-results');
 const selectedUser = document.getElementById('selected-users');
-
-countriesWrapper.autocomplete = new Autocomplete(countriesWrapper, {
-  data: countries,
-  resultsEl: countriesResults,
-  renderResult: (country) => {
+userWrapper.autocomplete = new Autocomplete(countriesWrapper, {
+  data: [],
+  resultsEl: userResults,
+  renderResult: (user) => {
     const item = document.createElement('div');
-    item.innerText = country
-      ? country.label
-      : 'Start typing for options';
+    item.innerText = user ? user.label : 'Start typing for options';
     return item;
   },
-  onSelect: (country) => {
-    console.log('select', country);
-    selectedCountry.innerText = `${country.label} (${country.code})`;
+  onSelect: (user) => {
+    console.log('select', `${user.first_name} ${user.last_name}`);
+    selectedUser.innerText = `${user.first_name} ${user.last_name}`;
   },
 });
