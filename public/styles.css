@@ -2,9 +2,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  font-size: 20px;
 }
 
 .field > div {
   display: flex;
   gap: 8px;
+  margin: 14px;
 }
